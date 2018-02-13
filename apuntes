@@ -1,0 +1,26 @@
+Para usar la terminal y mientras usar la pagina del browser podemos hacer:
+
+fossil ui &
+
+O bien:
+fossil ui + control z pero eso lo duemre luego no podremos pinchar en la pagiina se queda parada si hacemos bg(background) seguira y si hacemos fg volverá a no dejarnos meter mas comandos
+
+Debemos borrar todos los lenguajes que no usemos:
+fossil update
+
+ls -la
+fossil rm hw.awk (aun no desaparece)
+fossil commit -m "lo que sea"
+y luego rm hw.awk 
+y ahora si hacemos fossil update ya no aparece
+
+Como recuperamos el archivo ahora¿?
+
+volver a la versión donde estaba el fichero (lo vemos un número en la página web)
+copiamos el numero de identificación
+
+fossil update identificador --> is back, siempre puedes volver atrás se queda en el control de versiones
+
+Y si hacemos fossil update volveremos a no tener el fichero pq no lo hemos guardado
+
+Para añadir fossil add ./remove
