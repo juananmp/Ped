@@ -24,3 +24,8 @@ fossil update identificador --> is back, siempre puedes volver atrás se queda e
 Y si hacemos fossil update volveremos a no tener el fichero pq no lo hemos guardado
 
 Para añadir fossil add ./remove
+
+Proceso creacion y subida a fossil:
+vi fichero
+fossil add sergio
+fossil commit -m "lo que sea"
