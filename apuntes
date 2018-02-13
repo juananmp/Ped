@@ -29,3 +29,7 @@ Proceso creacion y subida a fossil:
 vi fichero
 fossil add sergio
 fossil commit -m "lo que sea"
+
+fossil sync (push + pull)
+siempre hacerr fossil update por si sergio o yo hemos actualizado algo
+mirar fossil mv
