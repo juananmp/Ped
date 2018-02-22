@@ -67,4 +67,365 @@ The best way to install these is using a program called pip. This comes installe
 Using pip is the standard way of installing libraries on most operating systems, but some 
 libraries have prebuilt binaries for Windows. These are normal executable files that let you install libraries with a GUI
 the same way you would install other programs.
+
+Exceptions
+------------
+Different exceptions are raised for different reasons. 
+Common exceptions:
+ImportError: an import fails;
+IndexError: a list is indexed with an out-of-range number;
+NameError: an unknown variable is used;
+SyntaxError: the code can't be parsed properly; 
+TypeError: a function is called on a value of an inappropriate type;
+ValueError: a function is called on a value of the correct type, but with an inappropriate value.
+
+Try/Except
+------------
+Exception Handling
+
+To handle exceptions, and to call code when an exception occurs, you can use a try/except statement.
+The try block contains code that might throw an exception. If that exception occurs, the code in the try block stops being executed, and the code in the except block is run. If no error occurs, the code in the except block doesn't run.
+For example:
+try:
+   num1 = 7
+   num2 = 0
+   print (num1 / num2)
+   print("Done calculation")
+except ZeroDivisionError:
+   print("An error occurred")
+   print("due to zero division")
+   
+ Exception Handling
+----------------------
+A try statement can have multiple different except blocks to handle different exceptions.
+Multiple exceptions can also be put into a single except block using parentheses, to have the except block handle all of them.
+try:
+   variable = 10
+   print(variable + "hello")
+   print(variable / 2)
+except ZeroDivisionError:
+   print("Divided by zero")
+except (ValueError, TypeError):
+   print("Error occurred")
+   
+Exception Handling
+------------------
+An except statement without any exception specified will catch all errors. These should be used sparingly, as they can catch unexpected errors and hide programming mistakes.
+For example:
+try:
+   word = "spam"
+   print(word / 0)
+except:
+   print("An error occurred")
+
+finally
+----------
+To ensure some code runs no matter what errors occur, you can use a finally statement. The finally statement is placed at the bottom of a try/except statement. Code within a finally statement always runs after execution of the code in the try, and possibly in the except, blocks.
+try:
+   print("Hello")
+   print(1 / 0)
+except ZeroDivisionError:
+   print("Divided by zero")
+finally:
+   print("This code will run no matter what")
+   
+La gracia del raise es que puedes especificar que excepciones tienes, como en el siguiente caso:
+------------------------------------------------------------------------------------------------
+Which errors occur in this code?
+try:
+  print(1 / 0)
+except ZeroDivisionError:
+  raise ValueError
+Respuesta --> ZeroDivisionError and ValueError (está dentro del ZeroDivisionError)
+
+Las raise exceptions se pueden personalizar:
+Exceptions can be raised with arguments that give detail about them.
+For example:
+name = "123"
+raise NameError("Invalid name!")
+
+In except blocks, the raise statement can be used without arguments to re-raise whatever exception occurred.
+For example:
+try:
+   num = 5 / 0
+except:
+   print("An error occurred")
+   raise
+El resultado por pantalla de esto, es lo siguiente:
+An error occurred
+ZeroDivisionError: division by zero
+
+Opening Files
+--------------------
+You can use Python to read and write the contents of files.
+Text files are the easiest to manipulate. Before a file can be edited, it must be opened, using the open function.
+myfile = open("filename.txt")
+
+Opening Files
+---------------
+You can specify the mode used to open a file by applying a second argument to the open function.
+Sending "r" means open in read mode, which is the default. 
+Sending "w" means write mode, for rewriting the contents of a file.
+Sending "a" means append mode, for adding new content to the end of the file.
+
+Adding "b" to a mode opens it in binary mode, which is used for non-text files (such as image and sound files).
+For example:
+# write mode
+open("filename.txt", "w")
+
+# read mode
+open("filename.txt", "r")
+open("filename.txt")
+
+# binary write mode
+open("filename.txt", "wb")
+
+Once a file has been opened and used, you should close it.
+This is done with the close method of the file object.
+file = open("filename.txt", "w")
+# do stuff to the file
+file.close()
+
+Se pueden leer por numero de carateres, si le pones print(2) ---> te mostrará solo dos letras (mejor dicho dos espacios)
+-----------------------------------------
+To read only a certain amount of a file, you can provide a number as an argument to the read function. This determines the number of bytes that should be read. 
+You can make more calls to read on the same file object to read more of the file byte by byte. With no argument, read returns the rest of the file.
+file = open("filename.txt", "r")
+print(file.read(16))
+print(file.read(4))
+print(file.read(4))
+print(file.read())
+file.close()
+
+Reading Files
+------------------
+After all contents in a file have been read, any attempts to read further from that file will return an empty string, because you are trying to read from the end of the file.
+file = open("filename.txt", "r")
+file.read()
+print("Re-reading")
+print(file.read())
+print("Finished")
+file.close()
+
+Result:
+>>>
+Re-reading
+
+Finished
+>>>
+
+To retrieve each line in a file, you can use the readlines method to return a list in which each element is a line in the file.
+For example:
+file = open("filename.txt", "r")
+print(file.readlines())
+file.close()
+
+Result:
+>>>
+['Line 1 text \n', 'Line 2 text \n', 'Line 3 text']
+>>>
+
+You can also use a for loop to iterate through the lines in the file:
+file = open("filename.txt", "r")
+
+for line in file:
+    print(line)
+
+file.close()
+
+Writing Files
+----------------
+To write to files you use the write method, which writes a string to the file.
+For example:
+file = open("newfile.txt", "w")
+file.write("This has been written to a file")
+file.close()
+
+file = open("newfile.txt", "r")
+print(file.read())
+file.close()
+The "w" mode will create a file, if it does not already exist.
+
+When a file is opened in write mode, the file's existing content is deleted.
+
+Working with Files
+
+It is good practice to avoid wasting resources by making sure that files are always closed after they have been used. One way of doing this is to use try and finally.
+try:
+   f = open("filename.txt")
+   print(f.read())
+finally:
+   f.close()
+   
+ None
+
+The None object is used to represent the absence of a value. 
+It is similar to null in other programming languages. 
+Like other "empty" values, such as 0, [] and the empty string, it is False when converted to a Boolean variable. 
+When entered at the Python console, it is displayed as the empty string.
+
+Dictionaries
+
+Dictionaries are data structures used to map arbitrary keys to values. 
+Lists can be thought of as dictionaries with integer keys within a certain range.
+Dictionaries can be indexed in the same way as lists, using square brackets containing keys.
+Example:
+ages = {"Dave": 24, "Mary": 42, "John": 58}
+print(ages["Dave"])
+print(ages["Mary"])
+
+Orden de rapidez en python en las consultas:tupla,diccionario,lista
+
+Dictionaries
+---------------
+Just like lists, dictionary keys can be assigned to different values.
+However, unlike lists, a new dictionary key can also be assigned a value, not just ones that already exist.
+Just like lists, dictionary keys can be assigned to different values.
+However, unlike lists, a new dictionary key can also be assigned a value, not just ones that already exist.
+squares = {1: 1, 2: 4, 3: "error", 4: 16,}
+squares[8] = 64
+squares[3] = 9
+print(squares)
+
+To determine whether a key is in a dictionary, you can use in and not in, just as you can for a list.
+Example:
+nums = {
+  1: "one",
+  2: "two",
+  3: "three",
+}
+print(1 in nums)
+print("three" in nums)
+print(4 not in nums)
+
+A useful dictionary method is get. It does the same thing as indexing, but if the key is not found in the dictionary it returns another specified value instead ('None', by default).
+Example:
+pairs = {1: "apple",
+  "orange": [2, 3, 4], 
+  True: False, 
+  None: "True",
+}
+
+print(pairs.get("orange"))
+print(pairs.get(7))
+print(pairs.get(12345, "not in dictionary"))
+
+Tuples (Listas = [], Diccionarios={}, Tuplas=() )
+------------------
+Tuples are very similar to lists, except that they are immutable (they cannot be changed). 
+Also, they are created using parentheses, rather than square brackets. 
+Example:
+words = ("spam", "eggs", "sausages",)
+You can access the values in the tuple with their index, just as you did with lists:
+print(words[0])
+Trying to reassign a value in a tuple causes a TypeError.
+words[1] = "cheese"
+
+Se pueden crear tuplas sin paréntesis y una tupla vacia se crea como tupla = (jua, juan)
+Si en una lista imprimimos el rango [4:7] --> se imprimiran los numeros de las posiciones 4,5,6 el 7 NO
+
+List Slices
+-------------
+If the first number in a slice is omitted, it is taken to be the start of the list.
+If the second number is omitted, it is taken to be the end.
+Example:
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[:7])
+print(squares[7:])
+
+Coge el primer elemento de la lista que crea [3:2:-1]
+
+List comprehensions are a useful way of quickly creating lists whose contents obey a simple rule.
+For example, we can do the following:
+# a list comprehension
+cubes = [i**3 for i in range(5)]
+print(cubes)
+esto lo que hace es que en unaa lista del 0-4, 0**3=0,1**3=1,2**3=8,3**3=27,4**3=64
+
+String Functions
+-----------------------
+Python contains many useful built-in functions and methods to accomplish common tasks. 
+join - joins a list of strings with another string as a separator. 
+replace - replaces one substring in a string with another.
+startswith and endswith - determine if there is a substring at the start and end of a string, respectively. 
+To change the case of a string, you can use lower and upper.
+The method split is the opposite of join, turning a string with a certain separator into a list.
+Some examples:
+print(", ".join(["spam", "eggs", "ham"]))
+#prints "spam, eggs, ham"
+
+print("Hello ME".replace("ME", "world"))
+#prints "Hello world"
+
+print("This is a sentence.".startswith("This"))
+# prints "True"
+
+print("This is a sentence.".endswith("sentence."))
+# prints "True"
+
+Numeric Functions
+
+To find the maximum or minimum of some numbers or a list, you can use max or min.
+To find the distance of a number from zero (its absolute value), use abs.
+To round a number to a certain number of decimal places, use round.
+To find the total of a list, use sum.
+Some examples:
+print(min(1, 2, 3, 4, 0, 2, 1))
+print(max([1, 4, 9, 2, 5, 6, 8]))
+print(abs(-99))
+print(abs(42))
+print(sum([1, 2, 3, 4, 5]))
+print("This is a sentence.".upper())
+# prints "THIS IS A SENTENCE."
+
+print("AN ALL CAPS SENTENCE".lower())
+#prints "an all caps sentence"
+
+print("spam, eggs, ham".split(", "))
+#prints "['spam', 'eggs', 'ham']"ç
+
+Text Analyzer
+----------------
+This is an example project, showing a program that analyzes a sample file to find what percentage of the text each character occupies.
+This section shows how a file could be open and read.
+filename = input("Enter a filename: ")
+
+with open(filename) as f:
+   text = f.read()
+print(text)
+
+Porque usamos un ORM:
+1. El ORM te permite convertir los datos de tus objetos en un formato correcto para poder guardar
+la info en la BBDD (mapeo) 
+2. Transformar toda la infromaccion que recibes dde la BBDD en objetos y viceversa
+3. Utilizando un ORM el mapeo es automatico independientemente de la BBDD 
+4. Otras ventajas si cambiamos los campos  de la BBDD, con ORM solo tendremos que añadir la propiedad
+a la clase correspondiente y no ir query por query
+
+La ventaja del Python Pony es que puedes hacer las consultas como si fuera la sintaxys de python
+Ej: (expression for x in s if condition)
+Pony, nos proporciona una serie de funciones:
+    select(c for c in Customer if sum(c.orders.total_price)> 1000)
+    Mirar en caso de duda el tutorial https://docs.ponyorm.com/queries.html#using-lambda-functions
  
+ Lo paso como variable para que sepa el lenguaje/motor de la BBDD que va a tratar
+ y probar --> print(db.entity)
+ ¿liberar los recursos de La BBDD?
+ 
+ Lambda te permite en vez de crear una funcion def pues simplemente en una linea declararlo
+ >>> def f(x):
+...     return x*2
+...     
+>>> f(3)
+6
+>>> g = lambda x: x*2  1
+>>> g(3)
+6
+>>> (lambda x: x*2)(3) 2
+6
+
+
+
+
+
+
