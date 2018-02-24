@@ -424,8 +424,32 @@ Pony, nos proporciona una serie de funciones:
 >>> (lambda x: x*2)(3) 2
 6
 
+Mirar temas de pure/impure functions based on functional programming language
+Pure Functions
 
+Using pure functions has both advantages and disadvantages. 
+Pure functions are:
+- easier to reason about and test.
+- more efficient. Once the function has been evaluated for an input, the result can be stored and referred to the next time the function of that input is needed, reducing the number of times the function is called. This is called memoization.
+- easier to run in parallel.
 
+Lambdas (Relacionado con el trabajo)
+---------
+Creating a function normally (using def) assigns it to a variable automatically. 
+This is different from the creation of other objects - such as strings and integers - which can be created on the fly, without assigning them to a variable. 
+The same is possible with functions, provided that they are created using lambda syntax. Functions created this way are known as anonymous.
+This approach is most commonly used when passing a simple function as an argument to another function. The syntax is shown in the next example and consists of the lambda keyword followed by a list of arguments, a colon, and the expression to evaluate and return.
+def my_func(f, arg):
+  return f(arg)  
+my_func(lambda x: 2*x*x, 5)
+
+#named function
+def polynomial(x):
+    return x**2 + 5*x + 4
+print(polynomial(-4))
+
+#lambda
+print((lambda x: x**2 + 5*x + 4) (-4))
 
 
 
