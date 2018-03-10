@@ -148,4 +148,242 @@ Here is an example.
    alert("This is an alert box!");
 </script>
 
+Variables
+
+Variables are containers for storing data values. The value of a variable can change throughout the program.
+Use the var keyword to declare a variable:
+var x = 10;
+
+In the example above, the variable x is assigned the value 10.
+
+The Equal Sign
+
+In JavaScript, the equal sign (=) is called the "assignment" operator, rather than an "equal to" operator.
+For example, x = y will assign the value of y to x.
+A variable can be declared without a value. The value might require some calculation, something that will be provided later, like user input.
+A variable declared without a value will have the value undefined.
+
+Data Types
+
+The term data type refers to the types of values with which a program can work. JavaScript variables can hold many data types, such as numbers, strings, arrays, and more.
+
+Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point, etc.
+
+JavaScript numbers can be written with or without decimals.
+var num = 42; // A number without decimals
+
+x*= y --> x = x*y
+x+= y --> x = x+y
+
+Comparison Operators
+
+Comparison operators are used in logical statements to determine equality or difference between variables or values. They return true or false. 
+
+The equal to (==) operator checks whether the operands' values are equal.
+var num = 10; 
+// num == 8 will return false
+
+=== Identical, not only equals furthermore same type
+Conditional (Ternary) Operator
+Another JavaScript conditional operator assigns a value to a variable, based on some condition.
+Syntax:
+variable = (condition) ? value1: value2 
+
+For example:
+var isAdult = (age < 18) ? "Too young": "Old enough";
+Try It Yourself
+
+If the variable age is a value below 18, the value of the variable
+isAdult will be "Too young". Otherwise the value of isAdult will be "Old enough".
+String Operators
+
+The most useful operator for strings is concatenation, represented by the + sign. 
+Concatenation can be used to build strings by joining together multiple strings, or by joining strings with other types: 
+var mystring1 = "I am learning ";
+var mystring2 = "JavaScript with SoloLearn.";
+document.write(mystring1 + mystring2);
+
+The if Statement
+
+Very often when you write code, you want to perform different actions based on different conditions.
+You can do this by using conditional statements in your code.
+
+Use if to specify a block of code that will be executed if a specified condition is true.
+if (condition) {
+   statements
+}
+
+The statements will be executed only if the specified condition is true.
+
+Example:
+var myNum1 = 7;
+var myNum2 = 10;
+if (myNum1 < myNum2) {
+   alert("JavaScript is easy to learn.");
+}
+
+The else Statement
+
+Use the else statement to specify a block of code that will execute if the condition is false.
+if (expression) {
+   // executed if condition is true
+}
+else {
+   // executed if condition is false
+}
+
+else if
+
+You can use the else if statement to specify a new condition if the first condition is false.
+
+Example:
+var course = 1;
+if (course == 1) {
+   document.write("<h1>HTML Tutorial</h1>");
+} else if (course == 2) {
+   document.write("<h1>CSS Tutorial</h1>");
+} else {
+   document.write("<h1>JavaScript Tutorial</h1>");
+}
+Try It Yourself
+
+The above code says:
+- if course is equal to 1, output "HTML Tutorial";
+- else, if course is equal to 2, output "CSS Tutorial";
+- if none of the above condition is true, then output "JavaScript Tutorial";
+
+course is equal to 1, so we get the following result:
+
+Switch
+
+In cases when you need to test for multiple conditions, writing if else statements for each condition might not be the best solution. 
+The switch statement is used to perform different actions based on different conditions.
+
+Syntax:
+switch (expression) {
+  case n1: 
+     statements
+     break;
+  case n2: 
+     statements
+     break;
+  default: 
+     statements
+}
+
+The switch expression is evaluated once. The value of the expression is compared with the values of each case.
+If there is a match, the associated block of code is executed.
+
+The break Keyword
+
+When JavaScript code reaches a break keyword, it breaks out of the switch block.
+This will stop the execution of more code and case testing inside the block.
+Usually, a break should be put in each case statement.
+
+Loops
+
+Loops can execute a block of code a number of times. They are handy in cases in which you want to run the same code repeatedly, adding a different value each time.
+
+JavaScript has three types of loops: for, while, and do while. 
+
+The for loop is commonly used when creating a loop.
+
+The syntax:
+for (statement 1; statement 2; statement 3) {
+   code block to be executed
+}
+
+Statement 1 is executed before the loop (the code block) starts.
+Statement 2 defines the condition for running the loop (the code block).
+Statement 3 is executed each time after the loop (the code block) has been executed.
+
+The For Loop
+
+The example below creates a for loop that prints numbers 1 through 5.
+for (i=1; i<=5; i++) {
+   document.write(i + "<br />");
+}
+Try It Yourself
+
+In this example, Statement 1 sets a variable before the loop starts (var i = 1).
+Statement 2 defines the condition for the loop to run (i must be less than or equal to 5).
+Statement 3 increases a value (i++) each time the code block in the loop has been executed.
+
+The For Loop
+
+If statement 2 returns true, the loop will start over again, if it returns false, the loop will end.
+Statement 2 is also optional.
+If you omit statement 2, you must provide a break inside the loop. Otherwise, the loop will never end.
+
+Statement 3 is used to change the initial variable. It can do anything, including negative increment (i--), positive increment (i = i + 15), or anything else.
+Statement 3 is also optional, and it can be omitted if you increment your values inside the loop.
+var i = 0;
+for (; i < 10; ) {
+   document.write(i);
+   i++;
+}
+
+Defining a Function
+
+To define a JavaScript function, use the function keyword, followed by a name, followed by a set of parentheses ().
+
+The code to be executed by the function is placed inside curly brackets {}.
+function name() {    
+  //code to be executed
+}
+
+Calling a Function
+
+To execute the function, you need to call it.
+To call a function, start with the name of the function, then follow it with the arguments in parentheses.
+Example:
+function myFunction() {
+  alert("Calling a Function!");
+}
+
+myFunction();
+//Alerts "Calling a Function!"
+
+
+Function Parameters
+
+Functions can take parameters. 
+Function parameters are the names listed in the function's definition.
+
+Syntax:
+functionName(param1, param2, param3) {
+   // some code
+}
+
+After defining the parameters, you can use them inside the function.
+function sayHello(name) {
+   alert("Hi, " + name);
+}
+
+sayHello("David");
+//Alerts "Hi, David"
+Try It Yourself
+
+This function takes in one parameter, which is called name. When calling the function, provide the parameter's value (argument) inside the parentheses. 
+Function arguments are the real values passed to (and received by) the function.
+
+Multiple Parameters
+
+When calling the function, provide the arguments in the same order in which you defined them.
+function sayHello(name, age) {
+  document.write( name + " is " + age + " years old.");
+}
+
+sayHello("John", 20)
+//Outputs "John is 20 years old."
+
+Multiple Parameters
+
+After defining the function, you can call it as many times as needed. 
+JavaScript functions do not check the number of arguments received.
+If a function is called with missing arguments (fewer than declared), the missing values are set to undefined, which indicates that a variable has not been assigned a value.
+
+
+
+
 
