@@ -1,3 +1,6 @@
+Para hacer clone:
+fossil clone http://ja.merino@repo.eps.uspceu.es/ped/ped3 repo.fossil
+
 Para usar la terminal y mientras usar la pagina del browser podemos hacer:
 
 fossil ui &
